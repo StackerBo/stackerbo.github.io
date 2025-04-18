@@ -2,7 +2,7 @@
 title:          "A Multi-agent Framework for Materials Laws Discovery"
 date:           2024-11-25 14:19:35 +0000
 selected:       true
-pub:            "Arxiv"
+pub:            "arXiv"
 pub_pre:        "Preprint at "
 # pub_post:       'Under review.'
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'
@@ -16,7 +16,7 @@ authors:
   - Siyu Liu
   - Beilin Ye
   - Yun Hao
-  - Tongqi Wen*
+  - Tongqi Wen
 links:
   Paper: https://arxiv.org/abs/2411.16416
 ---
