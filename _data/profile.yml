@@ -8,7 +8,7 @@ positions:
 # - name: Position 2 without logo
 
 
-email: "hubosc\@sina.cn"
+email: "hubosc@sina.cn"
 # cv_link: link-to-your-cv-file
 gscholar: ES_BMfsAAAAJ  # This is an example, replace it with your own Google Scholar ID
 github: StackerBo
@@ -19,7 +19,7 @@ github: StackerBo
 linkedin: bo-hu-3909a0310
 # orcid: 0000-0000-0000-0000
 
-short_bio_text_justify: false
+short_bio_text_justify: true
 short_bio: >-
   <p> 
   Hello, and welcome to my personal website. My name is Bo Hu, and I am currently an undergraduate student at <span style="color: #007acc;">Tsinghua University</span>, 
