@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#8fb6b3"><meta name="description" content="走进胡博的 3D 城市，自由漫游，在学校、研究所、咖啡厅和运动场发现他的故事。"><title>Bo’s City · 胡博的城市</title><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiNlZTc2NWIiLz48cGF0aCBkPSJNMTIgNDlWMjhsMTQtOXYzME0yNiA0OVYxMmgxN3YzN000MyA0OVYyNmgxMHYyM005IDUwaDQ3IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmY2ZTkiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPgo=" type="image/svg+xml"><link rel="stylesheet" href="./city-assets/style.f6d236c05d1a.css">
-<link rel="preload" href="./city-assets/models.c070656b8720.pack" as="fetch" crossorigin="anonymous"><script>window.__CITY_PACK_URL="./city-assets/models.c070656b8720.pack";window.__CITY_AIRPORT_URL="./city-assets/airport.c2b056f7b7b8.html";</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#8fb6b3"><meta name="description" content="走进胡博的 3D 城市，自由漫游，在学校、研究所、咖啡厅和运动场发现他的故事。"><title>Bo’s City · 胡博的城市</title><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiNlZTc2NWIiLz48cGF0aCBkPSJNMTIgNDlWMjhsMTQtOXYzME0yNiA0OVYxMmgxN3YzN000MyA0OVYyNmgxMHYyM005IDUwaDQ3IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmY2ZTkiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPgo=" type="image/svg+xml"><link rel="stylesheet" href="./city-assets/style.c4016081dfd3.css">
+<link rel="preload" href="./city-assets/models.c070656b8720.pack" as="fetch" crossorigin="anonymous"><script>window.__CITY_PACK_URL="./city-assets/models.c070656b8720.pack";window.__CITY_AIRPORT_URL="./city-assets/airport.ddfe218fdd6a.html";</script>
 <!-- Three.js: MIT. Kenney models: CC0. Full notices: city-assets/LICENSES.txt -->
 </head>
 <body>
@@ -10,6 +10,7 @@
 <main id="world" aria-label="自由探索胡博的 3D 城市">
 <canvas id="scene" tabindex="0" aria-label="3D 城市。WASD 或方向键移动，Shift 跑步，空格跳跃，靠近地点后点击互动按钮，或按 E 互动。"></canvas>
 <div class="vignette" aria-hidden="true"></div>
+<button id="character-about" class="character-about" aria-label="点击人物，认识胡博" hidden>Bo <span>↗</span></button>
 <div id="labels" aria-label="附近地点"></div>
 <div id="travel-status" class="travel-status" role="status" aria-live="polite"></div>
 <button id="interact" class="interact" hidden><kbd aria-hidden="true">E</kbd><span id="interact-label">进入地点</span><strong class="interact-touch">点击互动</strong><span class="interact-arrow" aria-hidden="true">↗</span></button>
@@ -17,7 +18,7 @@
 <button id="mobile-run" class="mobile-run" aria-label="切换跑步" aria-pressed="false">跑</button>
 <div class="loading" id="loading"><div class="loading-city"><i></i><i></i><i></i><i></i><i></i></div><strong>下一站，你的好奇心。</strong><span id="loading-text">正在走进 Bo’s City…</span><div class="loader-track"><i id="loading-bar"></i></div></div>
 </main>
-<header class="game-header"><button id="home" class="brand" aria-label="回到中央广场"><span class="brand-mark">B<span>•</span></span><span>BO’S CITY<small id="location-name">中央广场</small></span></button><div class="game-actions"><button id="weather-button" aria-label="小城天气" aria-haspopup="dialog"><span class="weather-icon" aria-hidden="true">☀</span><span class="weather-label">晴天</span></button><button id="map-button" aria-label="打开城市地图">地图 <kbd>M</kbd></button><button id="help-button" aria-label="操作指南">?</button></div></header>
+<header class="game-header"><button id="home" class="brand" aria-label="回到中央广场"><span class="brand-mark">B<span>•</span></span><span>BO’S CITY<small id="location-name">中央广场</small></span></button><div class="game-actions"><button id="language-toggle" data-i18n-skip aria-label="Switch to English" lang="en">EN</button><button id="weather-button" aria-label="小城天气" aria-haspopup="dialog"><span class="weather-icon" aria-hidden="true">☀</span><span class="weather-label">晴天</span></button><button id="map-button" aria-label="打开城市地图">地图 <kbd>M</kbd></button><button id="help-button" aria-label="操作指南">?</button></div></header>
 <nav id="quick-nav" aria-label="快速浏览个人内容"></nav>
 <div class="game-bottom"><div class="controls-hint"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</span><span><kbd>Shift</kbd> 跑步</span><span><kbd>Space</kbd> 跳跃</span><span>拖动视角 · 滚轮缩放</span></div><button class="camera-reset" id="reset-camera" aria-label="镜头回到人物">◎</button><label class="city-zoom" for="city-zoom"><span>远</span><input id="city-zoom" type="range" min="65" max="165" step="1" value="100" aria-label="城市视角缩放"><span>近</span></label></div>
 <div class="minimap-shell" id="minimap-shell"><div class="minimap-heading"><span>小城地图</span><small><b id="explored-count">0</b> / <span id="destination-count">5</span></small></div><div id="minimap" aria-label="城市小地图"><canvas id="map-canvas" width="480" height="400"></canvas><div id="map-pins"></div><span id="player-pin"></span></div><button class="map-expand" id="expand-map" aria-label="展开地图">↗</button></div>
@@ -26,5 +27,5 @@
 <dialog id="details" aria-labelledby="panel-title"><div class="panel-top"><span id="panel-eyebrow"></span><button id="close-panel" aria-label="关闭详情">×</button></div><nav id="panel-nav" aria-label="切换个人内容" hidden></nav><div id="panel-content"></div><div class="panel-footer"><button id="credits-button">小城手记</button><button id="back-to-town">回到小城 <span aria-hidden="true">↗</span></button></div></dialog>
 <dialog id="airport-dialog" aria-label="远行机场 · 人生足迹"><button id="close-airport" aria-label="关闭地图，回到小城">回到小城 ↗</button><div id="airport-mount"></div></dialog>
 <noscript><div class="no-js">请开启 JavaScript 来探索城市，或访问 <a href="https://stackerbo.github.io/classic.html">胡博的文字主页</a>。</div></noscript>
-<script type="module" src="./city-assets/runtime.16073237012d.js"></script>
+<script type="module" src="./city-assets/runtime.60d978e9518b.js"></script>
 </body></html>
